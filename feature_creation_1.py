@@ -60,9 +60,11 @@ def read_and_write_all_excel_files(config):
     json_files = [i for i in files if "_category_id.json" in i]
 
     for json_file in json_files:
+        if ".dvc" in json_file:
+            continue
+        categories_dict = retrieve_data_from_json(os.path.join(params["data"]["raw_data"], json_file))
         excel_file = re.sub("_category_id.json", "videos.csv",json_file, flags=re.IGNORECASE)
         print(excel_file, json_file)
-        categories_dict = retrieve_data_from_json(os.path.join(params["data"]["raw_data"], json_file))
         df = add_additional_columns(os.path.join(params["data"]["raw_data"], excel_file), categories_dict)
         df.to_csv(os.path.join(params["data"]["processed_data"], excel_file))
         print("Successful")

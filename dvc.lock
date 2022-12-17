@@ -1,0 +1,76 @@
+schema: '2.0'
+stages:
+  question1:
+    cmd: python feature_creation_1.py --config=params.yaml
+    deps:
+    - path: data_given
+      md5: 9cb7237870fa73b63395eb9a43f19915.dir
+      size: 539223998
+      nfiles: 41
+    - path: feature_creation_1.py
+      md5: e3a8a3fc33efc06103bd0141f5e927a5
+      size: 3075
+    - path: params.yaml
+      md5: f06c51e9b2bca746d15493d690fd6d1d
+      size: 777
+  question2a:
+    cmd: python generate_meta_data_file_2.py --config=params.yaml
+    deps:
+    - path: generate_meta_data_file_2.py
+      md5: 571c43d35775bcd1d63342a5967ad08a
+      size: 1768
+    - path: params.yaml
+      md5: f06c51e9b2bca746d15493d690fd6d1d
+      size: 777
+    - path: processed_data
+      md5: 8c59e8144581857184eba22a5ff17e92.dir
+      size: 638007171
+      nfiles: 10
+    - path: validate_meta_2.py
+      md5: 533af99dd6ead301786428c07d353ade
+      size: 2200
+  question2b:
+    cmd: python validate_meta_2.py --config=params.yaml
+    deps:
+    - path: generate_meta_data_file_2.py
+      md5: 571c43d35775bcd1d63342a5967ad08a
+      size: 1768
+    - path: params.yaml
+      md5: f06c51e9b2bca746d15493d690fd6d1d
+      size: 777
+    - path: processed_data
+      md5: 8c59e8144581857184eba22a5ff17e92.dir
+      size: 638007171
+      nfiles: 10
+    - path: validate_meta_2.py
+      md5: 533af99dd6ead301786428c07d353ade
+      size: 2200
+  question3:
+    cmd: python weekly_parquet_file_3.py --config=params.yaml
+    deps:
+    - path: params.yaml
+      md5: f06c51e9b2bca746d15493d690fd6d1d
+      size: 777
+    - path: processed_data
+      md5: 8c59e8144581857184eba22a5ff17e92.dir
+      size: 638007171
+      nfiles: 10
+    - path: weekly_parquet_file_3.py
+      md5: cb604e55069f3b45f56b39cda26f99bf
+      size: 1941
+  question4:
+    cmd: python category_parquet_file_4.py --config=params.yaml
+    deps:
+    - path: category_parquet_file_4.py
+      md5: 5981dd6cc23512eb1cd360da1cbe843e
+      size: 2379
+    - path: params.yaml
+      md5: f06c51e9b2bca746d15493d690fd6d1d
+      size: 777
+    - path: processed_data
+      md5: 8c59e8144581857184eba22a5ff17e92.dir
+      size: 638007171
+      nfiles: 10
+    - path: weekly_parquet_file_3.py
+      md5: cb604e55069f3b45f56b39cda26f99bf
+      size: 1941

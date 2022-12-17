@@ -1,0 +1,43 @@
+stages:
+  create-env:
+    cmd: pip install -r requirements.txt
+    deps:
+    - requirements.txt
+
+  question1:
+    cmd: python feature_creation_1.py --config=params.yaml
+    deps:
+    - params.yaml
+    - data_given
+    - feature_creation_1.py
+
+  question2a:
+    cmd: python generate_meta_data_file_2.py --config=params.yaml
+    deps:
+    - params.yaml
+    - processed_data
+    - generate_meta_data_file_2.py
+    - validate_meta_2.py
+  
+  question2b:
+    cmd: python validate_meta_2.py --config=params.yaml
+    deps:
+    - params.yaml
+    - processed_data
+    - generate_meta_data_file_2.py
+    - validate_meta_2.py
+
+  question3:
+    cmd: python weekly_parquet_file_3.py --config=params.yaml
+    deps:
+    - params.yaml
+    - processed_data
+    - weekly_parquet_file_3.py
+
+  question4:
+    cmd: python category_parquet_file_4.py --config=params.yaml
+    deps:
+    - params.yaml
+    - processed_data
+    - weekly_parquet_file_3.py
+    - category_parquet_file_4.py

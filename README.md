@@ -9,7 +9,7 @@ Project Organization
     ├── README.md          <- Documentation of the project
     ├── data_given         <- Excel and Json files given
     │
-    ├── data_processed     <- Data generated after adding columns of category,
+    ├── processed_data     <- Data generated after adding columns of category,
     │                         net popularit(likes - dislikes), 
     │                         days in top 10 trending,
     │                         months in top trending
@@ -47,8 +47,5 @@ Project Organization
 
 --------
 
-1. Run the feature_creation.py
-2. Run the generate_meta_data_file_2.py
-3. Run the validate_meta_2.py
-4. Run the weekly_parquet_file_3.py
-5. Run the category_parquet_file_4.py 
+1. Add data files in data_given/ folder
+2. Run dvc repro <stage-name> to get output of the stage
