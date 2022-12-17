@@ -1,0 +1,24 @@
+data:
+  raw_data: data_given
+  processed_data: processed_data
+  standard_excel_file: data_given/CAvideos.csv
+  standard_json_file: data_given/CA_category_id.json
+  standard_csv_meta: standard_csv_meta.txt
+  standard_json_meta: standard_json_meta.txt
+
+data_new:
+  csv_file_path: data_given/FRvideos.csv
+  json_file_path: data_given/FR_category_id.json
+
+data_weekly:
+  file_path: weekly_data
+
+aggregates:
+  category:
+    trending_date: aggregates\category\trending_date
+    trending_month: aggregates\category\trending_month
+    trending_quarter: aggregates\category\trending_quarter
+  region:
+    trending_date: aggregates\region\trending_date
+    trending_month: aggregates\region\trending_month
+    trending_quarter: aggregates\region\trending_quarter
