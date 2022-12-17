@@ -47,5 +47,5 @@ Project Organization
 
 --------
 
-1. Add data files in data_given/ folder
-2. Run dvc repro <stage-name> to get output of the stage
+1. Add data files in data_given folder
+2. Run dvc repro \<stage-name> to get output of the stage
